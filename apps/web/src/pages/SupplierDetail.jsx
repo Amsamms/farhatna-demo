@@ -161,7 +161,7 @@ const SupplierDetail = () => {
                 alt={supplier.companyName}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  e.target.src = `https://images.unsplash.com/photo-1519167758481-83f29d8ae8e1?w=800&h=600&fit=crop`
+                  e.target.src = `https://images.pexels.com/photos/265818/pexels-photo-265818.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop`
                 }}
               />
             </div>

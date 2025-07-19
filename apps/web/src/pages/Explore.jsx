@@ -124,7 +124,7 @@ const Explore = () => {
                     alt={supplier.companyName}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.src = `https://images.unsplash.com/photo-1519167758481-83f29d8ae8e1?w=400&h=300&fit=crop`
+                      e.target.src = `https://images.pexels.com/photos/265818/pexels-photo-265818.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop`
                     }}
                   />
                 </div>
