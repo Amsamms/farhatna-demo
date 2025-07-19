@@ -1,0 +1,39 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: farhatna-db
+    env: node
+    region: oregon
+    plan: free
+    databaseName: farhatna
+    databaseUser: farhatna_user
+
+  # Backend API Service  
+  - type: web
+    name: farhatna-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd apps/api && npm install && npm run build
+    startCommand: cd apps/api && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: farhatna-super-secure-jwt-secret-key-2024
+      - key: DATABASE_URL
+        fromDatabase:
+          name: farhatna-db
+          property: connectionString
+
+  # Frontend Static Site
+  - type: web
+    name: farhatna-web
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: cd apps/web && npm install && npm run build
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://farhatna-api.onrender.com
