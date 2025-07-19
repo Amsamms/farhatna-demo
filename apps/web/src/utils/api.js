@@ -1,8 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://farhatna-api.onrender.com'
 
-// Debug log to verify API URL (remove after testing)
-console.log('🔗 Frontend API URL:', API_BASE_URL)
-
 class ApiError extends Error {
   constructor(message, status) {
     super(message)

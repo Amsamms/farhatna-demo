@@ -11,26 +11,17 @@ const fastify = Fastify({
 const prisma = new PrismaClient()
 
 await fastify.register(cors, {
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      'http://localhost:5173', 
-      'http://localhost:3000',
-      'https://farhatna-demo.onrender.com',
-      process.env.FRONTEND_URL || 'https://your-app.railway.app'
-    ]
-    
-    // Allow requests with no origin (mobile apps, etc.)
-    if (!origin) return callback(null, true)
-    
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true)
-    }
-    
-    return callback(new Error('Not allowed by CORS'), false)
-  },
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:3000',
+    'https://farhatna-demo.onrender.com',
+    process.env.FRONTEND_URL || 'https://your-app.railway.app'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 })
 
 await fastify.register(jwt, {
