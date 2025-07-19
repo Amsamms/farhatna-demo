@@ -17,7 +17,9 @@ await fastify.register(cors, {
     'https://farhatna-demo.onrender.com',
     process.env.FRONTEND_URL || 'https://your-app.railway.app'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept']
 })
 
 await fastify.register(jwt, {
