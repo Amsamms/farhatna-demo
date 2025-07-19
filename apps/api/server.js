@@ -14,6 +14,7 @@ await fastify.register(cors, {
   origin: [
     'http://localhost:5173', 
     'http://localhost:3000',
+    'https://farhatna-demo.onrender.com',
     process.env.FRONTEND_URL || 'https://your-app.railway.app'
   ],
   credentials: true
