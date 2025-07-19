@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "build": "prisma generate",
+    "start": "prisma generate && node server.js",
+    "dev": "node --watch server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "seed": "node seed.js"
+  },
+  "keywords": [],
+  "author": "Ahmed Mohamed Sabri",
+  "license": "ISC",
+  "description": "Farhatna API Backend",
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@fastify/jwt": "^9.1.0",
+    "@prisma/client": "^6.12.0",
+    "bcryptjs": "^3.0.2",
+    "fastify": "^5.4.0",
+    "pg": "^8.16.3",
+    "prisma": "^6.12.0"
+  }
+}
