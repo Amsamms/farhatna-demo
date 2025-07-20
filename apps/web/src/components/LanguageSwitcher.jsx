@@ -7,14 +7,13 @@ const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const languages = [
-    { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },
-    { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇪🇬' }
+    { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇪🇬' },
+    { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' }
   ]
 
   const currentLanguage = languages.find(lang => lang.code === language)
 
   const handleLanguageChange = (langCode) => {
-    console.log('Switching language to:', langCode)
     switchLanguage(langCode)
     setIsOpen(false)
   }

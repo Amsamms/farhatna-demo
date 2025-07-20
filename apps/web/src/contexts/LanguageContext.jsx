@@ -11,13 +11,12 @@ const translations = {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('language') || 'en'
+    return localStorage.getItem('language') || 'ar'
   })
 
   const [isRTL, setIsRTL] = useState(language === 'ar')
 
   useEffect(() => {
-    console.log('LanguageContext: language changed to', language)
     localStorage.setItem('language', language)
     setIsRTL(language === 'ar')
     
@@ -28,15 +27,12 @@ export const LanguageProvider = ({ children }) => {
     // Update body class for RTL styling
     if (language === 'ar') {
       document.body.classList.add('rtl')
-      console.log('Applied RTL styling')
     } else {
       document.body.classList.remove('rtl')
-      console.log('Removed RTL styling')
     }
   }, [language])
 
   const switchLanguage = (newLanguage) => {
-    console.log('LanguageContext: switching from', language, 'to', newLanguage)
     setLanguage(newLanguage)
   }
 
