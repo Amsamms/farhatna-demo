@@ -14,6 +14,7 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === language)
 
   const handleLanguageChange = (langCode) => {
+    console.log('Switching language to:', langCode)
     switchLanguage(langCode)
     setIsOpen(false)
   }
@@ -22,7 +23,7 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-4 py-2.5 bg-white/70 backdrop-blur-md border border-white/20 text-gray-700 hover:text-primary-600 hover:bg-white/90 transition-all duration-200 rounded-xl shadow-soft hover:shadow-card transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-200"
+        className="flex items-center gap-2 px-4 py-2.5 bg-white/70 backdrop-blur-md border border-white/20 text-gray-700 hover:text-primary-600 hover:bg-white/90 transition-all duration-200 rounded-xl shadow-soft hover:shadow-card transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-200"
       >
         <span className="text-lg">{currentLanguage?.flag}</span>
         <span className="text-sm font-semibold">{currentLanguage?.nativeName}</span>
@@ -51,7 +52,7 @@ const LanguageSwitcher = () => {
                 style={{animationDelay: `${index * 0.05}s`}}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center gap-3">
                     <span className="text-lg">{lang.flag}</span>
                     <span className="font-medium">{lang.nativeName}</span>
                   </div>
